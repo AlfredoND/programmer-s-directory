@@ -1,0 +1,119 @@
+---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+<style is:global>
+	:root {
+  color-scheme: light dark;
+}
+	/*reseteo de margin y padding de todo*/
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    vertical-align: baseline;
+  }
+  /*evitamos problemas con las imagenes*/
+  img,
+  picture,
+  video,
+  iframe,
+  figure {
+    max-width: 100%;
+    width: 100%;
+    display: block;
+  }
+  /*reseteo de los enlaces para funcionar como caja... */
+  a {
+    display: block;
+  }
+  /*...excepto los que se encuentran en parrafo*/
+  p a {
+    display: inline-block;
+  }
+  /*quitamos las puntos de los <li> */
+  li {
+    list-style: none;
+  }
+  /*configuramos anclas suaves*/
+  html {
+	font-family:  "Roboto", sans-serif;
+    scroll-behavior: smooth;
+  }
+  /*desactivamos estilos por defectos de las principales etiquetas*/
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-size: 1.5em;
+    font-weight: inherit;
+    font-style: inherit;
+    color: inherit;
+    text-wrap: balance;
+	font-family: "Poppins", sans-serif;
+  }
+  p,
+  span,
+  a,
+  strong,
+  blockquote,
+  i,
+  b,
+  u,
+  em {
+    font-size: 1.1rem;
+  
+    font-weight: inherit;
+    font-style: inherit;
+    text-decoration: none;
+    color: inherit;
+     text-wrap: pretty;  /*compatibles con ciertos navegadores */
+  }
+  /* nivelamos problemas de tipografias y colocación de formularios */
+  form,
+  input,
+  textarea,
+  select,
+  button,
+  label {
+    font-family: inherit;
+    font-size: inherit;
+    hyphens: auto;
+    background-color: transparent;
+    display: block;
+    color: inherit;
+  }
+  /*evitamos problemas con los SVG*/
+  svg {
+    width: 100%;
+    display: block;
+    fill: currentColor;
+  }
+  /*configuramos la tipografia para toda la web*/
+  body {
+    font-size: 100%;
+    line-height: 1.4em;
+  }
+  
+</style>
