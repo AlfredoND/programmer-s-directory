@@ -19,3 +19,9 @@ pnpm-debug.log*
 
 # macOS-specific files
 .DS_Store
+<<<<<<< HEAD
+=======
+
+
+ideas.md
+>>>>>>> 3b4c505 (create  of first components of the project)

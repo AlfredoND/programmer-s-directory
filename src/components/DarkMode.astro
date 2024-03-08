@@ -1,0 +1,55 @@
+<div class="toggle-theme">
+  <button class="button">
+    <div class="circle"></div>
+  </button>
+</div>
+<style>
+  .button {
+    width: 2.6rem;
+    height: 1.5rem;
+    border-radius: 1rem;
+    background-color: #fff;
+  }
+  .circle {
+    width: 1rem;
+    height: 1rem;
+    margin-inline: 4px;
+    border-radius: 50%;
+    background-color: #1c1b22d2;
+    transition: transform 0.4s ease-in-out;
+  }
+  .button.activo {
+    background-color: #1c1b22;
+  }
+  .circle.activo {
+    background-color: #ddd;
+    transform: translate(100%);
+  }
+</style>
+
+<script>
+  const $circle = document.querySelector(".circle"),
+    $button = document.querySelector(".button");
+  const svg = document.querySelector("svg");
+
+  //button of dark mode
+  $button.addEventListener("click", () => {
+    $circle.classList.toggle("activo");
+    $button.classList.toggle("activo");
+
+    if (
+      $button.classList.contains("activo") &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches
+    ) {
+      document.querySelector("body").classList.add("dark");
+      if (svg.style.fill) {
+        svg.style.fill = "#eee";
+      } else {
+        svg.style.stroke = "#eee";
+      }
+    } else {
+      document.querySelector("body").classList.remove("dark");
+      svg.style.stroke = "";
+    }
+  });
+</script>
