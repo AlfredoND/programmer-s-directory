@@ -1,7 +1,4 @@
 {
-<<<<<<< HEAD
-  "extends": "astro/tsconfigs/base"
-=======
   "extends": "astro/tsconfigs/base",
   "compilerOptions": {
     "baseUrl": ".",
@@ -14,5 +11,4 @@
       ]
     }
   }
->>>>>>> 3b4c505 (create  of first components of the project)
 }

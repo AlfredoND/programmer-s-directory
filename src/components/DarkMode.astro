@@ -28,28 +28,39 @@
 </style>
 
 <script>
-  const $circle = document.querySelector(".circle"),
-    $button = document.querySelector(".button");
+  const $circle = document.querySelector(".circle");
+  const $button = document.querySelector(".button");
   const svg = document.querySelector("svg");
+  const body = document.querySelector("body");
+
+  //style of the dark mode
+  const styleDarkMode = {
+    color: "#fff",
+    background: "#1c1b22",
+    lightColor: "#1c1b22",
+    lightBackground: "#fff",
+  };
 
   //button of dark mode
   $button.addEventListener("click", () => {
     $circle.classList.toggle("activo");
     $button.classList.toggle("activo");
 
-    if (
-      $button.classList.contains("activo") &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches
-    ) {
-      document.querySelector("body").classList.add("dark");
+    if ($button.classList.contains("activo") === true) {
+      //add color dark mode
+      body.style.color = styleDarkMode.color;
+      body.style.backgroundColor = styleDarkMode.background;
+      
       if (svg.style.fill) {
         svg.style.fill = "#eee";
       } else {
         svg.style.stroke = "#eee";
       }
+
     } else {
-      document.querySelector("body").classList.remove("dark");
-      svg.style.stroke = "";
+      body.style.color = styleDarkMode.lightColor;
+      body.style.backgroundColor = styleDarkMode.lightBackground;
+      (svg.style.stroke = ""), (svg.style.fill = "");
     }
   });
 </script>
