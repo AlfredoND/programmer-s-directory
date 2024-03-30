@@ -1,0 +1,66 @@
+---
+import Navigation from "../components/Navigation.astro";
+import DarkMode from "./DarkMode.astro";
+---
+
+<header data-dark>
+  <div class="header-container">
+    <a class="logo-cont" href="">
+      <img class="logo" src="../../public/svg/icons/code.svg" alt="" />
+    </a>
+    <div class="bar-cont">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="bar-icons"
+        width="44"
+        height="44"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="#2c3e50"
+        fill="none"
+        stroke-linecap="round"
+        stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <path d="M4 6l16 0"></path>
+        <path d="M4 12l16 0"></path>
+        <path d="M4 18l16 0"></path>
+      </svg>
+    </div>
+    <Navigation />
+    <DarkMode />
+  </div>
+</header>
+
+<style>
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0070e0;
+  }
+  .header-container {
+    width: 87.5rem;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+  .logo-cont {
+    width: 8rem;
+  }
+  .logo {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+  .bar-cont {
+    display: none;
+  }
+  @media (width <= 780px) {
+    .header-container {
+      flex-wrap: wrap;
+    }
+    .bar-cont {
+      display: block;
+    }
+  }
+</style>

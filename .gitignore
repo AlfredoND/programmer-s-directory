@@ -19,6 +19,5 @@ pnpm-debug.log*
 
 # macOS-specific files
 .DS_Store
-
 ideas.md
 todo.md
