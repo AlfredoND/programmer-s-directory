@@ -32,7 +32,6 @@
   const $button = document.querySelector(".button");
   const svg = document.querySelector("svg");
   const body = document.querySelector("body");
-
   //style of the dark mode
   const styleDarkMode = {
     color: "#fff",
@@ -41,26 +40,39 @@
     lightBackground: "#fff",
   };
 
+  function deactivateDarkMode() {
+    $circle.classList.remove("activo"), $button.classList.remove("activo");
+    body.style.color = styleDarkMode.lightColor;
+    body.style.backgroundColor = styleDarkMode.lightBackground;
+
+    (svg.style.stroke = ""), (svg.style.fill = "");
+    localStorage.setItem("darkMode", "light");
+  }
+  function activeDarkMode() {
+    $circle.classList.add("activo"), $button.classList.add("activo");
+    body.style.color = styleDarkMode.color;
+    body.style.backgroundColor = styleDarkMode.background;
+
+    if (svg.style.fill) {
+      svg.style.fill = "#eee";
+    } else {
+      svg.style.stroke = "#eee";
+    }
+    localStorage.setItem("darkMode", "dark");
+  }
+  //save dark mode
+  document.addEventListener("DOMContentLoaded", () => {
+    const save = localStorage.getItem("darkMode");
+    if (save === "dark") activeDarkMode();
+  });
+  
   //button of dark mode
   $button.addEventListener("click", () => {
     $circle.classList.toggle("activo");
     $button.classList.toggle("activo");
 
-    if ($button.classList.contains("activo") === true) {
-      //add color dark mode
-      body.style.color = styleDarkMode.color;
-      body.style.backgroundColor = styleDarkMode.background;
-      
-      if (svg.style.fill) {
-        svg.style.fill = "#eee";
-      } else {
-        svg.style.stroke = "#eee";
-      }
-
-    } else {
-      body.style.color = styleDarkMode.lightColor;
-      body.style.backgroundColor = styleDarkMode.lightBackground;
-      (svg.style.stroke = ""), (svg.style.fill = "");
-    }
+    $button.classList.contains("activo")
+      ? activeDarkMode()
+      : deactivateDarkMode();
   });
 </script>

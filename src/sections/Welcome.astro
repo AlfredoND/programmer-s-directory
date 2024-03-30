@@ -1,0 +1,30 @@
+---
+import Title from "src/components/Title.astro";
+import Slider from "src/components/Slider.astro";
+---
+
+<section>
+  <Title />
+  <div>
+    <p>
+      Un proyecto de codigo abierto para ayudarte a conocer y encontrar
+      información sobre tecnologias, framework, librerias y más
+      <span>¡Información rapida, para que programes rapido!</span>
+    </p>
+    <Slider  />
+  </div>
+</section>
+
+<style>
+  section {
+    width: 100%;
+  }
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  p {
+    width: 20rem;
+  }
+</style>

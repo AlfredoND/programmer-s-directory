@@ -3,12 +3,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@svg": [
-        "../../public/svg/*"
-      ],
-      "@/": [
-        "src/*"
-      ]
+      
     }
   }
 }
