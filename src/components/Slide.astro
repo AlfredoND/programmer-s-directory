@@ -1,0 +1,49 @@
+---
+
+---
+
+<div>
+  <div class="window-slide">
+    <div class="big-container" id="bigContainer">
+      <div class="slide">1</div>
+      <div class="slide">2</div>
+      <div class="slide">3</div>
+      <div class="slide">4</div>
+      <div class="slide">5</div>
+    </div>
+  </div>
+</div>
+<style>
+  .window-slide {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+  }
+  .big-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: green;
+    height: 150px;
+    
+  }
+  .slide {
+    width: 150px;
+    height: 150px;
+    background: lightblue;
+  }
+  .slide img {
+    width: 100%;
+  }
+</style>
+
+<!-- todo: hacer que javascript haga que el width del big-container sea igual a la multiplicación del número de sliders x 150px -->
+<script>
+  const $bigContainer = document.getElementById("#bigContainer");
+  const $slides = document.querySelectorAll(".slide");
+ 
+
+ $slides.forEach((slide,index)=>{
+  $bigContainer.style.width =`${slide[index] * 150}px`
+ });
+</script>

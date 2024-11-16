@@ -1,0 +1,45 @@
+[
+    {
+        "tecnologias": [
+            {
+                "name": "html",
+                "documentation": [
+                    {
+                        "name": "MDN",
+                        "url": "",
+                        "description": ""
+                    },
+                    {
+                        "nombre": "W3C",
+                        "url": "",
+                        "descripcion": ""
+                    },
+                    {
+                        "nombre": "WHATWG",
+                        "url": "",
+                        "descripcion": ""
+                    },
+                    {
+                        "nombre": "W3Schools",
+                        "url": "",
+                        "descripcion": ""
+                    }
+                ]
+            },
+            {
+                "name": "css",
+                "documentation": []
+            },
+            {
+                "name": "javascript",
+                "documentation": []
+            }
+        ]
+    },
+    {
+        "frameworks": []
+    },
+    {
+        "librerias": []
+    }
+]

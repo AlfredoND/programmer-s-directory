@@ -41,15 +41,18 @@
   };
 
   function deactivateDarkMode() {
-    $circle.classList.remove("activo"), $button.classList.remove("activo");
+    $circle.classList.remove("activo");
+    $button.classList.remove("activo");
     body.style.color = styleDarkMode.lightColor;
     body.style.backgroundColor = styleDarkMode.lightBackground;
 
-    (svg.style.stroke = ""), (svg.style.fill = "");
+    svg.style.stroke = "";
+    svg.style.fill = "";
     localStorage.setItem("darkMode", "light");
   }
   function activeDarkMode() {
-    $circle.classList.add("activo"), $button.classList.add("activo");
+    $circle.classList.add("activo");
+    $button.classList.add("activo");
     body.style.color = styleDarkMode.color;
     body.style.backgroundColor = styleDarkMode.background;
 
@@ -65,7 +68,7 @@
     const save = localStorage.getItem("darkMode");
     if (save === "dark") activeDarkMode();
   });
-  
+
   //button of dark mode
   $button.addEventListener("click", () => {
     $circle.classList.toggle("activo");

@@ -1,104 +1,101 @@
-<nav class="cont-efect">
-  <ul>
-    <li class="li">
-      <a href="index.astro">Inicio</a>
-    </li>
-    <li class="li">
-      <a href="/frontend">Frontend</a>
-      <ul class="ul">
-        <li>
-          <a href="">Documentacion</a>
+---
+const contenidos = [
+  { name: "inicio" },
+  {
+    name: "frontend",
+    parts: [
+      { name: "tecnologia", url: "/frontend#tecnologia" },
+      { name: "framework", url: "/frontend#framework" },
+      { name: "librerias", url: "/frontend#librerias" },
+    ],
+  },
+  {
+    name: "backend",
+    parts: [
+      { name: "tecnologia", url: "/backend#tecnologia" },
+      { name: "framework", url: "/backend#framework" },
+      { name: "librerias", url: "/backend#librerias" },
+    ],
+  },
+  {
+    name: "data base",
+    parts: [
+      { name: "tecnologia", url: "/database#tecnologia" },
+      { name: "framework", url: "/database#framework" },
+      { name: "librerias", url: "/database#librerias" },
+    ],
+  },
+  {
+    name: " más",
+    parts: [
+      { name: "blog", url: "/blog" },
+      { name: "conoce", url: "/conoce" },
+      { name: "herramientas", url: "/herramientas" },
+      { name: "informaciones", url: "/informaciones" },
+    ],
+  },
+];
+//color 1 #055cb4
+//color 2 #0070e0
+//color 3 #bed5eb
+---
+
+<nav>
+  <ul class="lista">
+    {
+      contenidos.map(({ name, parts }) => (
+        <li class="item">
+          <a href={`/${name}`}>{name}</a>
+          <ul class="sub-lista">
+            {parts &&
+              parts.map(({ name, url }) => (
+                <li class="sub-item">
+                  {" "}
+                  <a href={url}>{name}</a>
+                </li>
+              ))}
+          </ul>
         </li>
-        <li><a href="">Framework</a></li>
-        <li><a href="">Librerias</a></li>
-      </ul>
-    </li>
-    <li class="li">
-      <a href="/backend">Backend</a>
-      <ul class="ul">
-        <li>
-          <a href="">Documentacion</a>
-        </li>
-        <li><a href="">Framework</a></li>
-        <li><a href="">Librerias</a></li>
-      </ul>
-    </li>
-    <li class="li">
-      <a href="/database">Data base</a>
-      <ul class="ul">
-        <li>
-          <a href="">Documentacion</a>
-        </li>
-        <li><a href="">Framework</a></li>
-        <li><a href="">Librerias</a></li>
-      </ul>
-    </li>
-    <li class="li">
-      <a href="/database">Más</a>
-      <ul class="ul">
-        <li><a href="">Blog</a></li>
-        <li><a href="">Conoce</a></li>
-        <li>
-          <a href="">Herramientas</a>
-        </li>
-        <li><a href="">Informaciones</a></li>
-      </ul>
-    </li>
+      ))
+    }
   </ul>
 </nav>
 
 <style>
-  ul {
+  .lista {
     display: flex;
-    align-items: end;
-    flex-wrap: nowrap;
+    align-items: center;
     justify-content: space-evenly;
   }
-  .li,
-  .ul > li {
+  .item,
+  .sub-item {
     position: relative;
     font-size: 1.1rem;
     padding: 0.6rem 1.3rem;
   }
-  .li:hover,
-  .ul > li:hover {
-    background-color: #055cb4;
-  }
-  .li.activo {
-    background-color: #055cb4;
-  }
-  .ul {
+
+  .sub-lista {
+    position: absolute;
     left: 0;
     top: 42px;
     display: none;
-    position: absolute;
     align-items: start;
     flex-direction: column;
     justify-content: center;
     background-color: #0070e0;
     border-top: 2px solid #bed5eb;
   }
-  .li:hover > .ul {
-    display: flex;
-  }
-  .ul > li {
+  .sub-lista > .sub-item {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
   }
-  @media (width <= 780px) {
-    nav {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    ul {
-      flex-direction: column;
-    }
-    .li:hover,
-    .ul > li:hover {
-    }
+  .item:hover > .sub-lista {
+    display: flex;
+  }
+  .item:hover,
+  .sub-lista > .sub-item:hover {
+    background-color: #055cb4;
   }
 </style>
