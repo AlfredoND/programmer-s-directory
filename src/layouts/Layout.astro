@@ -15,7 +15,7 @@ const { title } = Astro.props;
     <link
       rel="icon"
       type="image/svg+xml"
-      href="../../public/img/logo/logo_light_color.png"
+      href="/img/logo/logo_light_color.png"
     />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
@@ -36,9 +36,7 @@ const { title } = Astro.props;
   /*evitamos problemas con las imagenes*/
   img,
   picture,
-  video,
-  iframe,
-  figure {
+  video {
     max-width: 100%;
     width: 100%;
     display: block;
@@ -67,7 +65,6 @@ const { title } = Astro.props;
   h4,
   h5,
   h6 {
-    font-size: 1.5em;
     font-weight: inherit;
     font-style: inherit;
     color: inherit;
@@ -76,14 +73,8 @@ const { title } = Astro.props;
   }
   p,
   span,
-  a,
-  strong,
-  blockquote,
-  i,
-  b,
-  u,
-  em {
-    font-size: 1.1rem;
+  a {
+    font-size: 1rem;
     font-weight: inherit;
     font-style: inherit;
     text-decoration: none;
